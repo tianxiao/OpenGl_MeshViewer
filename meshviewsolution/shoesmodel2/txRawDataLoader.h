@@ -61,18 +61,13 @@ class txRawDataLoader
 {
 public:
 	txRawDataLoader() {;};
-	//txRawDataLoader() {  char filename[] = "E:\\gitProject\\OpenGl_MeshViewer\\meshviewsolution\\shoesmodel\\603.nc"; LoadFile(filename);};
 	txRawDataLoader(char *file, double rtoaxis);
-	txRawDataLoader(std::string file) {;};
 	~txRawDataLoader(void);
-
-
 
 
 public:
 	void LoadFile(char *file, double l);
 	void OutPutXYZ(const char *file);
-
 	void OutPutOff(char *file);
 
 private:

@@ -11,20 +11,15 @@
 #define txPI 3.14159265358979323846264338327950288419716939937510
 
 
-
-
-
 txRawDataLoader::txRawDataLoader(char *file, double rtoaxis)
 {
 
 	LoadFile(file, rtoaxis);
 }
 
-
 txRawDataLoader::~txRawDataLoader(void)
 {
 }
-
 
 void txRawDataLoader::LoadFile(char *file, double l)
 {
@@ -104,7 +99,7 @@ void txRawDataLoader::OutPutXYZ(const char *file)
 {
 	FILE *f = fopen(file,"w");
 
-	for (int i=0; i<pointlist.size(); i++) {
+	for (size_t i=0; i<pointlist.size(); i++) {
 		txPoint &temp = pointlist[i];
 		fprintf(f,"%f %f %f\n",temp.x, temp.y, temp.z);
 	}
@@ -115,7 +110,7 @@ void txRawDataLoader::OutPutXYZ(const char *file)
 int FindMinInRange(txPoint &p, std::vector<txPoint> &ptnlist, int s, int e)
 {
 	assert(e>s);
-	assert(ptnlist.size()>e);
+	assert((int)ptnlist.size()>e);
 	double mindist;
 	double temp;
 	int rtn = s;
@@ -138,7 +133,7 @@ void txRawDataLoader::ConstructMesh()
 	int rows1;
 	int rows2;
 	int lb, rb, rt, lt;
-	for (int i=0; i<rnlist.size()-2; i++) {
+	for (size_t i=0; i<rnlist.size()-2; i++) {
 		rows0 = rnlist[i];
 		rows1 = rnlist[i+1];
 		rows2 = rnlist[i+2];
